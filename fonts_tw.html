@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-ink-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inkshou · 「凌」寫 · Ink 字型</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+</svg>
+
+<!-- ============================================================
+     頂欄
+     ============================================================ -->
+<header class="ink-topbar">
+  <div class="ink-topbar__inner">
+    <a class="ink-topbar__brand" href="./home.html">
+      <span class="ink-topbar__logo">
+        <svg class="ink-icon"><use href="#i-arrow-left"/></svg>
+      </span>
+      <span>返回</span>
+    </a>
+    <div class="ink-topbar__nav" style="margin-left:var(--ink-sp-4)">
+      <span class="ink-tiny">字型</span>
+      <span class="ink-small">inkshou</span>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:calc(var(--ink-header-h) + var(--ink-sp-10))">
+
+  <!-- ============================================================
+       Hero
+       ============================================================ -->
+  <section class="ink-section" style="border-top:none;padding-top:0">
+
+<!-- 繁体版建设中提示 -->
+<div class="ink-banner ink-banner--warning ink-banner--lg" id="tw-notice">
+  <svg class="ink-banner__icon ink-icon">
+    <use href="#i-warning"/>
+  </svg>
+  <div class="ink-banner__body">
+    <div class="ink-banner__title">繁體版正在建置中</div>
+    <div class="ink-banner__desc">
+      部分內容可能仍是簡體，或用詞不夠道地。我們正在持續完善。
+    </div>
+  </div>
+  <button class="ink-banner__close" aria-label="關閉" data-close-banner>
+    <svg class="ink-icon"><use href="#i-close"/></svg>
+  </button>
+</div>
+
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">字型</div>
+      <h1 class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-3)">
+        Inkshou
+      </h1>
+      <h2 class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-3)">
+        「凌」寫
+      </h2>
+      <p class="ink-p" style="max-width:560px;margin-top:var(--ink-sp-5)">
+        一款手寫裝飾字型。用於 404、空狀態、品牌標語等固定文字情境。
+        支援拉丁字母、漢語拼音聲調、注音符號與部分中日漢字。
+      </p>
+
+      <div class="ink-row" style="gap:var(--ink-sp-3);margin-top:var(--ink-sp-6)">
+        <button class="ink-btn ink-btn--primary" data-copy-font>
+          複製 font-family
+        </button>
+        <a class="ink-btn ink-btn--outline" href="#chars">
+          查看字元集
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       預覽
+       ============================================================ -->
+  <section class="ink-section">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">預覽</div>
+      <h2 class="ink-h2">一句中文，一句拼音</h2>
+
+      <div class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-6);color:var(--ink-primary)">
+        微風迎客，軟語伴茶
+      </div>
+
+      <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);color:var(--ink-text-muted)">
+        wēi fēng yíng kè, ruǎn yǔ bàn chá
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       字元集
+       ============================================================ -->
+  <section class="ink-section" id="chars">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">字元集</div>
+      <h2 class="ink-h2">目前收錄的字元</h2>
+      <p class="ink-p">按類別分組。新增字元後更新此頁。</p>
+
+      <!-- 拉丁字母 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-8)">
+        <div class="ink-eyebrow">拉丁字母 · 26 × 2</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.15em">
+          abcdefghijklmnopqrstuvwxyz
+        </div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-2);letter-spacing:0.15em">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ
+        </div>
+      </div>
+
+      <!-- 阿拉伯數字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">阿拉伯數字 · 10</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.3em">
+          0123456789
+        </div>
+      </div>
+
+      <!-- 漢語拼音聲調 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">漢語拼音聲調 · 24</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em;line-height:2">
+          ā á ǎ à &nbsp; ō ó ǒ ò &nbsp; ē é ě è<br>
+          ī í ǐ ì &nbsp; ū ú ǔ ù &nbsp; ǖ ǘ ǚ ǜ
+        </div>
+      </div>
+
+      <!-- 注音符號 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">注音符號 · 37</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em;line-height:2">
+          ㄅ ㄆ ㄇ ㄈ ㄉ ㄊ ㄋ ㄌ ㄍ ㄎ ㄏ<br>
+          ㄐ ㄑ ㄒ ㄓ ㄔ ㄕ ㄖ ㄗ ㄘ ㄙ<br>
+          ㄚ ㄛ ㄜ ㄝ ㄞ ㄟ ㄠ ㄡ ㄢ ㄣ ㄤ ㄥ ㄦ<br>
+          ㄧ ㄨ ㄩ
+        </div>
+      </div>
+
+      <!-- 數字漢字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">數字漢字 · 10</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.3em">
+          一二三四五六七八九十
+        </div>
+      </div>
+
+      <!-- 詩句漢字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">詩句漢字 · 8</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em">
+          微風迎客，軟語伴茶
+        </div>
+      </div>
+
+      <!-- 手寫漢字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">手寫漢字</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);line-height:1.8;letter-spacing:0.1em">
+          不中乘九亂了二於五人今會伴體何你元八六內涼分十厘廚參號四國在塩大天奧
+          奨字存學寶客小己已巳年當個微心戀悅您或所摯敘文是晉更有未條來柾柄梶椋
+          榊氣沒沢浜灣爐版狛貓獻瑤産発的盜真臯知移空竜筆米絶者腸英茶蔵路衛被襦
+          語説走路軟辻迎迷裡鉄鉢錯面顔風駅體黃會為台出與長新高公業現經最外進機
+        </div>
+      </div>
+
+      <!-- 標點 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">標點符號</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.15em">
+          . , ; : ' " ! ? + - * / % = ~ | @ # $ _ ^ \ &amp; &lt; &gt; ( ) [ ] { }
+        </div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-2);letter-spacing:0.15em">
+          ， 。 、 ； ： 「 」 『 』 （ ） 《 》 〈 〉 · … — ～
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     版權情況
+     ============================================================ -->
+<section class="ink-section">
+  <div class="ink-wrap">
+    <div class="ink-eyebrow">版權情況</div>
+    <h2 class="ink-h2">以 SIL OFL 1.1 發布</h2>
+
+    <div class="ink-stack ink-stack--lg" style="margin-top:var(--ink-sp-6);max-width:640px">
+      <p class="ink-p">
+        本字型以 SIL Open Font License 1.1 發布。你可以自由使用、修改、散布，包括商業用途，無須付費。
+      </p>
+
+      <p class="ink-p">你只需要做兩件事：</p>
+
+      <ul style="padding-left:var(--ink-sp-5);color:var(--ink-text-muted);line-height:var(--ink-lh-base)">
+        <li>保留字型檔案裡的版權聲明與授權文件</li>
+        <li>如果你改了字形做成新字型，請換個名字，別叫「凌寫」或「inkshou」</li>
+      </ul>
+
+      <p class="ink-p">沒有其他要求。不用取得授權，不用付費，也不用通知我。</p>
+
+      <a class="ink-link" href="./fonts/OFL.txt" target="_blank">
+        查看 SIL OFL 1.1 全文（副本）
+      <svg class="ink-icon"><use href="#i-external"/></svg>
+      </a>
+      <a class="ink-link ink-link--external" href="https://scripts.sil.org/OFL" target="_blank" rel="noopener">
+        查看 SIL OFL 1.1 全文（線上）
+        <svg class="ink-icon"><use href="#i-external"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     下載字型
+     ============================================================ -->
+<section class="ink-section">
+  <div class="ink-wrap">
+    <h2 class="ink-h2">下載字型</h2>
+
+    <div class="ink-stack ink-stack--lg" style="margin-top:var(--ink-sp-6);max-width:640px">
+
+      <p class="ink-p">點選以下按鈕下載：</p>
+
+    <a class="ink-btn ink-btn--primary ink-btn--lg"
+   href="https://github.com/wud1700722-rgb/inkshou/raw/main/inkshou.zip"
+   target="_blank"
+   rel="noopener">
+  下載此字型
+    </a>
+    </div>
+  </div>
+</section>
+
+  <!-- ============================================================
+       用法
+       ============================================================ -->
+  <section class="ink-section">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">用法</div>
+      <h2 class="ink-h2">怎麽在頁面裡用</h2>
+
+      <div class="ink-code-block" style="margin-top:var(--ink-sp-6)">
+        <div class="ink-code-block__head">
+          <span class="ink-code-block__dots"><span></span><span></span><span></span></span>
+          <span>html</span>
+        </div>
+        <pre><span class="ink-tok-comment">&lt;!-- 用類名 --&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--xl"</span><span class="ink-tok-tag">&gt;</span>
+  迷路了
+<span class="ink-tok-tag">&lt;/div&gt;</span>
+
+<span class="ink-tok-comment">&lt;!-- 漢字 + 拼音混排 --&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--lg"</span><span class="ink-tok-tag">&gt;</span>
+  微風迎客，軟語伴茶
+<span class="ink-tok-tag">&lt;/div&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--sm"</span><span class="ink-tok-tag">&gt;</span>
+  wēi fēng yíng kè, ruǎn yǔ bàn chá
+<span class="ink-tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ink-footer">
+  <div class="ink-wrap ink-footer__inner">
+    <div>© 2026 Ink · 用克製換清晰 · v0.1.0</div>
+    <div class="ink-footer__links">
+      <a href="./home.html">首頁</a>
+      <a href="./Components.html">組件</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('[data-copy-font]')?.addEventListener('click', async function() {
+    const text = "'inkshou'";
+    const original = this.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      this.textContent = '已複製';
+    } catch {
+      this.textContent = '複製失敗';
+    }
+    setTimeout(() => this.textContent = original, 1400);
+  });
+</script>
+
+</body>
+</html>
