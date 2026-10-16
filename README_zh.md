@@ -2,7 +2,7 @@
 
 **语言**
 
-[English](README.md) | [简体中文](README_zh.md)
+[English](README.md) | [简体中文](README_zh.md) | [繁體中文（台灣）](README_zh-Hant.md
 
 </div>
 
