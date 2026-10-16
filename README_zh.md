@@ -20,7 +20,7 @@
 
 - **零依赖**：纯 CSS 实现，不依赖任何框架，无需构建步骤。
 - **语义令牌**：颜色、间距、圆角、动效全部收口到 CSS 变量（Design Tokens）。
-- **中文友好**：内置手写体「凌」写（inkshou），针对中文排版重新调整了行高与字距。
+- **中文友好**：内置手写体“凌”写（inkshou），针对中文排版重新调整了行高与字距。
 - **浅色深色**：内置两套主题，跟随系统切换。
 - **无障碍友好**：合理使用 `aria-label`、`:focus-visible`，并支持 `prefers-reduced-motion`。
 
@@ -29,12 +29,13 @@
 1. 下载或克隆本仓库：
    ```bash
    git clone https://github.com/wud1700722-rgb/ink-design.git
-```
+   ```
 
 2. 在你的 HTML 入口中引入样式：
    ```html
    <link rel="stylesheet" href="./ink-design/style.css">
    ```
+
 3. 开始写标签：
    ```html
    <button class="ink-btn ink-btn--primary">开始使用</button>
