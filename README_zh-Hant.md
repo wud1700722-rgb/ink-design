@@ -29,7 +29,7 @@
 1. 下載或複製本倉庫：
    ```bash
    git clone https://github.com/wud1700722-rgb/ink-design.git
-```
+   ```
 
 2. 在你的 HTML 入口引入樣式：
    ```html
