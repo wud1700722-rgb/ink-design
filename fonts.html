@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-ink-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inkshou · “凌”写 · Ink 装饰字体</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+  <path d="M14 4h6v6M20 4l-8 8M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/>
+</symbol>
+</svg>
+
+<!-- ============================================================
+     顶栏
+     ============================================================ -->
+<header class="ink-topbar">
+  <div class="ink-topbar__inner">
+    <a class="ink-topbar__brand" href="./home.html">
+      <span class="ink-topbar__logo">
+        <svg class="ink-icon"><use href="#i-arrow-left"/></svg>
+      </span>
+      <span>返回</span>
+    </a>
+    <div class="ink-topbar__nav" style="margin-left:var(--ink-sp-4)">
+      <span class="ink-tiny">字体</span>
+      <span class="ink-small">inkshou</span>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:calc(var(--ink-header-h) + var(--ink-sp-10))">
+
+  <!-- ============================================================
+       Hero
+       ============================================================ -->
+  <section class="ink-section" style="border-top:none;padding-top:0">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">装饰字体</div>
+      <h1 class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-3)">
+        Inkshou
+      </h1>
+      <h2 class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-3)">
+        “凌”写
+      </h2>
+      <p class="ink-p" style="max-width:560px;margin-top:var(--ink-sp-5)">
+        一款手写装饰字体。用于 404、空状态、品牌标语等固定文案场景。
+        支持拉丁字母、汉语拼音声调、注音符号与部分中日汉字。
+      </p>
+
+      <div class="ink-row" style="gap:var(--ink-sp-3);margin-top:var(--ink-sp-6)">
+        <button class="ink-btn ink-btn--primary" data-copy-font>
+          复制 font-family
+        </button>
+        <a class="ink-btn ink-btn--outline" href="#chars">
+          查看字符集
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       预览
+       ============================================================ -->
+  <section class="ink-section">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">预览</div>
+      <h2 class="ink-h2">一句中文，一句拼音</h2>
+
+      <div class="ink-hand ink-hand--xl" style="margin-top:var(--ink-sp-6);color:var(--ink-primary)">
+        微風迎客，軟語伴茶
+      </div>
+
+      <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);color:var(--ink-text-muted)">
+        wēi fēng yíng kè, ruǎn yǔ bàn chá
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       字符集
+       ============================================================ -->
+  <section class="ink-section" id="chars">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">字符集</div>
+      <h2 class="ink-h2">目前收录的字符</h2>
+      <p class="ink-p">按类别分组。新增字符后更新此页。</p>
+
+      <!-- 拉丁字母 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-8)">
+        <div class="ink-eyebrow">拉丁字母 · 26 × 2</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.15em">
+          abcdefghijklm
+          nopqrstuvwxyz
+        </div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-2);letter-spacing:0.15em">
+          ABCDEFGHIJKLM
+          NOPQRSTUVWXYZ
+        </div>
+      </div>
+
+      <!-- 阿拉伯数字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">阿拉伯数字 · 10</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.3em">
+          0123456789
+        </div>
+      </div>
+
+      <!-- 汉语拼音声调 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">汉语拼音声调 · 24</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em;line-height:2">
+          ā á ǎ à &nbsp; ō ó ǒ ò &nbsp; ē é ě è<br>
+          ī í ǐ ì &nbsp; ū ú ǔ ù &nbsp; ǖ ǘ ǚ ǜ
+        </div>
+      </div>
+
+      <!-- 注音符号 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">注音符号 · 37</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em;line-height:2">
+          ㄅ ㄆ ㄇ ㄈ ㄉ ㄊ ㄋ ㄌ ㄍ ㄎ ㄏ<br>
+          ㄐ ㄑ ㄒ ㄓ ㄔ ㄕ ㄖ ㄗ ㄘ ㄙ<br>
+          ㄚ ㄛ ㄜ ㄝ ㄞ ㄟ ㄠ ㄡ ㄢ ㄣ ㄤ ㄥ ㄦ<br>
+          ㄧ ㄨ ㄩ
+        </div>
+      </div>
+
+      <!-- 数字汉字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">数字汉字 · 10</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.3em">
+          一二三四五六七八九十
+        </div>
+      </div>
+
+      <!-- 诗句汉字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">诗句汉字 · 8</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.2em">
+          微風迎客，軟語伴茶
+        </div>
+      </div>
+
+      <!-- 手写汉字 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">手写汉字</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);line-height:1.8;letter-spacing:0.1em">
+          不中乘九乱了二于五人今会伴体何你元八六内凉分十厘厨参号四国在塩大天奥
+          奨字存学宝客小己已巳年当个微心恋悦您或所摯敘文是晋更有未条来柾柄梶椋
+          榊气没沢浜湾炉版狛猫献瑶産発的盗真皋知移空竜笔米絶者肠英茶蔵路衛被襦
+          語説走路軟辻迎迷里鉄鉢錯面顔風駅體黄會為台出與長新高公業現經最外進機
+          𤒹𫛪𫟷鉝𰻞蛰
+        </div>
+      </div>
+
+      <!-- 标点 -->
+      <div class="ink-feature" style="margin-top:var(--ink-sp-4)">
+        <div class="ink-eyebrow">标点符号</div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-3);letter-spacing:0.15em">
+          . , ; : ' " ! ? + - * / % = ~ | @ # $ _ ^ \ &amp; &lt; &gt; ( ) [ ] { }
+        </div>
+        <div class="ink-hand ink-hand--lg" style="margin-top:var(--ink-sp-2);letter-spacing:0.15em">
+          ， 。 、 ； ： 「 」 『 』 （ ） 《 》 〈 〉 · … — ～
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============================================================
+     版权情况
+     ============================================================ -->
+<section class="ink-section">
+  <div class="ink-wrap">
+    <div class="ink-eyebrow">版权情况</div>
+    <h2 class="ink-h2">以 SIL OFL 1.1 发布</h2>
+
+    <div class="ink-stack ink-stack--lg" style="margin-top:var(--ink-sp-6);max-width:640px">
+      <p class="ink-p">
+        本字体以 SIL Open Font License 1.1 发布。你可以自由使用、修改、分发，包括商业用途，无需付费。
+      </p>
+
+      <p class="ink-p">你只需要做两件事：</p>
+
+      <ul style="padding-left:var(--ink-sp-5);color:var(--ink-text-muted);line-height:var(--ink-lh-base)">
+        <li>保留字体文件里的版权声明和许可文件</li>
+        <li>如果你改了字形做成新字体，换个名字，别叫「凌写」或「inkshou」</li>
+      </ul>
+
+      <p class="ink-p">没有其他要求。不用申请授权，不用付费，不用通知我。</p>
+
+      <a class="ink-link" href="./fonts/OFL.txt" target="_blank">
+        查看 SIL OFL 1.1 全文（副本）
+      <svg class="ink-icon"><use href="#i-external"/></svg>
+      </a>
+      <a class="ink-link ink-link--external" href="https://scripts.sil.org/OFL" target="_blank" rel="noopener">
+        查看 SIL OFL 1.1 全文（在线）
+        <svg class="ink-icon"><use href="#i-external"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     下载字体
+     ============================================================ -->
+<section class="ink-section">
+  <div class="ink-wrap">
+    <h2 class="ink-h2">下载字体</h2>
+
+    <div class="ink-stack ink-stack--lg" style="margin-top:var(--ink-sp-6);max-width:640px">
+
+      <p class="ink-p">点击以下按钮下载：</p>
+
+    <a class="ink-btn ink-btn--primary ink-btn--lg"
+   href="https://github.com/wud1700722-rgb/inkshou/raw/main/inkshou.zip"
+   target="_blank"
+   rel="noopener">
+  下载此字体
+    </a>
+    </div>
+  </div>
+</section>
+
+  <!-- ============================================================
+       用法
+       ============================================================ -->
+  <section class="ink-section">
+    <div class="ink-wrap">
+      <div class="ink-eyebrow">用法</div>
+      <h2 class="ink-h2">怎么在页面里用</h2>
+
+      <div class="ink-code-block" style="margin-top:var(--ink-sp-6)">
+        <div class="ink-code-block__head">
+          <span class="ink-code-block__dots"><span></span><span></span><span></span></span>
+          <span>html</span>
+        </div>
+        <pre><span class="ink-tok-comment">&lt;!-- 用类名 --&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--xl"</span><span class="ink-tok-tag">&gt;</span>
+  迷路了
+<span class="ink-tok-tag">&lt;/div&gt;</span>
+
+<span class="ink-tok-comment">&lt;!-- 汉字 + 拼音混排 --&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--lg"</span><span class="ink-tok-tag">&gt;</span>
+  微風迎客，軟語伴茶
+<span class="ink-tok-tag">&lt;/div&gt;</span>
+<span class="ink-tok-tag">&lt;div</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-hand ink-hand--sm"</span><span class="ink-tok-tag">&gt;</span>
+  wēi fēng yíng kè, ruǎn yǔ bàn chá
+<span class="ink-tok-tag">&lt;/div&gt;</span></pre>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ink-footer">
+  <div class="ink-wrap ink-footer__inner">
+    <div>© 2026 Ink · 用克制换清晰 · v0.1.2</div>
+    <div class="ink-footer__links">
+      <a href="./home.html">首页</a>
+      <a href="./Components.html">组件</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('[data-copy-font]')?.addEventListener('click', async function() {
+    const text = "'inkshou'";
+    const original = this.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      this.textContent = '已复制';
+    } catch {
+      this.textContent = '复制失败';
+    }
+    setTimeout(() => this.textContent = original, 1400);
+  });
+</script>
+
+</body>
+</html>

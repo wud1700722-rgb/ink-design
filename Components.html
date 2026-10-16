@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-ink-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ink · 组件文档</title>
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/styles/atom-one-dark.min.css">
+
+  <style>
+    /* ============================================================
+       文档站布局
+       ============================================================ */
+
+    /* 外壳：左右两栏 */
+    .ink-doc-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* 侧边栏：桌面端左侧固定 */
+    .ink-doc-sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--ink-bg-raised);
+      border-right: 1px solid var(--ink-line);
+      padding: var(--ink-sp-4) var(--ink-sp-3);
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* 主内容 */
+    .ink-doc-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* 移动端：侧边栏变抽屉 */
+    @media (max-width: 860px) {
+      .ink-doc-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        transform: translateX(-100%);
+        transition: transform var(--ink-t-slow);
+        box-shadow: var(--ink-shadow-3);
+        height: auto;
+      }
+
+      .ink-doc-sidebar.is-open {
+        transform: translateX(0);
+      }
+
+      .ink-doc-scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--ink-scrim);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--ink-t-slow);
+      }
+
+      .ink-doc-scrim.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    /* 侧边栏品牌区 */
+    .ink-doc-sidebar__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--ink-sp-2);
+      padding: var(--ink-sp-2) var(--ink-sp-3) var(--ink-sp-4);
+      font-weight: 600;
+      font-size: var(--ink-fs-md);
+      color: var(--ink-text);
+      text-decoration: none;
+    }
+
+    .ink-doc-sidebar__brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, var(--ink-primary), var(--ink-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ink-doc-sidebar__brand-mark .ink-icon {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+    }
+
+    /* 导航项 */
+    .ink-doc-nav-item {
+      display: flex;
+      align-items: center;
+      gap: var(--ink-sp-3);
+      padding: 8px var(--ink-sp-3);
+      border-radius: var(--ink-r-md);
+      font-size: var(--ink-fs-sm);
+      font-weight: 500;
+      color: var(--ink-text-muted);
+      transition: background var(--ink-t-fast), color var(--ink-t-fast);
+      text-decoration: none;
+    }
+
+    .ink-doc-nav-item:hover {
+      background: var(--ink-line);
+      color: var(--ink-text);
+    }
+
+    .ink-doc-nav-item.is-active {
+      background: var(--ink-primary-soft);
+      color: var(--ink-on-primary-soft);
+    }
+
+    .ink-doc-nav-item .ink-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    /* 可展开分组 */
+    .ink-doc-nav-group {
+      margin-top: var(--ink-sp-1);
+    }
+
+    .ink-doc-nav-group > summary {
+      display: flex;
+      align-items: center;
+      gap: var(--ink-sp-3);
+      padding: 8px var(--ink-sp-3);
+      border-radius: var(--ink-r-md);
+      font-size: var(--ink-fs-sm);
+      font-weight: 500;
+      color: var(--ink-text-muted);
+      cursor: pointer;
+      list-style: none;
+      transition: background var(--ink-t-fast), color var(--ink-t-fast);
+      user-select: none;
+    }
+
+    .ink-doc-nav-group > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .ink-doc-nav-group > summary:hover {
+      background: var(--ink-line);
+      color: var(--ink-text);
+    }
+
+    .ink-doc-nav-group > summary .ink-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+
+    .ink-doc-nav-group__arrow {
+      margin-left: auto;
+      width: 14px;
+      height: 14px;
+      opacity: 0.5;
+      transition: transform var(--ink-t-fast);
+    }
+
+    .ink-doc-nav-group[open] > summary .ink-doc-nav-group__arrow {
+      transform: rotate(90deg);
+    }
+
+    .ink-doc-nav-group__list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      padding-left: var(--ink-sp-5);
+      margin-top: var(--ink-sp-1);
+    }
+
+    .ink-doc-nav-group__list .ink-doc-nav-item {
+      font-size: var(--ink-fs-xs);
+      padding: 6px var(--ink-sp-3);
+    }
+
+    /* 工具栏 */
+    .ink-doc-toolbar {
+      display: flex;
+      align-items: center;
+      gap: var(--ink-sp-3);
+      padding: var(--ink-sp-3) var(--ink-sp-6);
+      border-bottom: 1px solid var(--ink-line);
+      background: var(--ink-nav-bg);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .ink-doc-toolbar__menu {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .ink-doc-toolbar__menu {
+        display: flex;
+      }
+    }
+
+    /* 正文 */
+    .ink-doc {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--ink-sp-10) var(--ink-sp-6) var(--ink-sp-20);
+      font-size: var(--ink-fs-base);
+      line-height: var(--ink-lh-base);
+      color: var(--ink-text);
+      text-align: left;
+    }
+
+    .ink-doc h1 { font-size: var(--ink-fs-3xl); font-weight: 700; letter-spacing: -0.03em; margin: 0 0 var(--ink-sp-3); line-height: 1.2; }
+    .ink-doc h2 { font-size: var(--ink-fs-2xl); font-weight: 650; letter-spacing: -0.02em; margin: var(--ink-sp-16) 0 var(--ink-sp-4); padding-bottom: var(--ink-sp-3); border-bottom: 1px solid var(--ink-line); line-height: 1.3; }
+    .ink-doc h3 { font-size: var(--ink-fs-xl); font-weight: 600; letter-spacing: -0.01em; margin: var(--ink-sp-12) 0 var(--ink-sp-3); line-height: 1.4; }
+    .ink-doc h4 { font-size: var(--ink-fs-lg); font-weight: 600; margin: var(--ink-sp-8) 0 var(--ink-sp-2); line-height: 1.4; }
+    .ink-doc p { margin: 0 0 var(--ink-sp-4); color: var(--ink-text-muted); }
+    .ink-doc ul, .ink-doc ol { margin: 0 0 var(--ink-sp-4); padding-left: var(--ink-sp-6); color: var(--ink-text-muted); }
+    .ink-doc ul { list-style: disc; }
+    .ink-doc ol { list-style: decimal; }
+    .ink-doc li { margin-bottom: var(--ink-sp-1); line-height: var(--ink-lh-base); }
+    .ink-doc li::marker { color: var(--ink-text-dim); }
+    .ink-doc code { font-family: var(--ink-font-mono); font-size: 0.85em; padding: 2px 6px; border-radius: var(--ink-r-sm); background: var(--ink-bg-raised); border: 1px solid var(--ink-line); color: var(--ink-text); }
+    .ink-doc pre { margin: var(--ink-sp-4) 0; padding: var(--ink-sp-5); border-radius: var(--ink-r-lg); background: var(--ink-bg-sunken); border: 1px solid var(--ink-line); overflow-x: auto; font-size: var(--ink-fs-sm); line-height: var(--ink-lh-loose); }
+    .ink-doc pre code { padding: 0; background: none; border: none; font-size: inherit; color: inherit; }
+    .ink-doc table { width: 100%; border-collapse: collapse; margin: var(--ink-sp-4) 0; font-size: var(--ink-fs-sm); border: 1px solid var(--ink-line); border-radius: var(--ink-r-lg); overflow: hidden; text-align: left; }
+    .ink-doc table th, .ink-doc table td { padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--ink-line); }
+    .ink-doc table th { font-weight: 600; font-size: var(--ink-fs-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-text-dim); background: var(--ink-bg-sunken); white-space: nowrap; }
+    .ink-doc table tbody tr:last-child td { border-bottom: none; }
+    .ink-doc-loading { text-align: center; padding: var(--ink-sp-20) 0; color: var(--ink-text-muted); }
+    .ink-doc-error { text-align: center; padding: var(--ink-sp-20) 0; color: var(--ink-danger); }
+  </style>
+</head>
+<body>
+
+<!-- SVG Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a2 2 0 01-2 2h-4v-6H9v6H5a2 2 0 01-2-2z"/></symbol>
+  <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></symbol>
+  <symbol id="i-button" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+</svg>
+
+<div class="ink-doc-shell">
+
+  <!-- 侧边栏 -->
+  <aside class="ink-doc-sidebar" id="sidebar">
+    <a class="ink-doc-sidebar__brand" href="./home.html">
+      <span class="ink-doc-sidebar__brand-mark">
+        <svg class="ink-icon"><use href="#i-check"/></svg>
+      </span>
+      <span>Ink</span>
+    </a>
+
+    <a class="ink-doc-nav-item" href="./Components.html">
+      <svg class="ink-icon"><use href="#i-home"/></svg>
+      文档页首页
+    </a>
+
+    <details class="ink-doc-nav-group">
+      <summary>
+        <svg class="ink-icon"><use href="#i-type"/></svg>
+        字体
+        <svg class="ink-icon ink-doc-nav-group__arrow"><use href="#i-chevron-right"/></svg>
+      </summary>
+      <div class="ink-doc-nav-group__list">
+        <a class="ink-doc-nav-item" href="./fonts.html">凌“写” inkshou</a>
+        <a class="ink-doc-nav-item" href="#">凌英像 Ink-EN-FIGURE</a>
+      </div>
+    </details>
+
+           <details class="ink-doc-nav-group" open>
+         <summary>
+            <svg class="ink-icon"><use href="#i-button"/></svg>
+           组件
+           <svg class="ink-icon ink-doc-nav-group__arrow"><use href="#i-chevron-right"/></svg>
+          </summary>
+          <div class="ink-doc-nav-group__list">
+            <a class="ink-doc-nav-item" href="?c=button">按钮 Button</a>
+            <a class="ink-doc-nav-item" href="?c=buttonicon">图标按钮 ButtonIcon</a>
+            <a class="ink-doc-nav-item" href="?c=link">链接 Link</a>
+            <a class="ink-doc-nav-item" href="?c=buttonlink">链接按钮 ButtonLink</a>
+      </div>
+     </details>
+  </aside>
+
+  <!-- 移动端遮罩 -->
+  <div class="ink-doc-scrim" id="scrim"></div>
+
+  <!-- 主内容 -->
+  <div class="ink-doc-main">
+    <div class="ink-doc-toolbar">
+      <button class="ink-btn ink-btn--icon ink-btn--ghost ink-doc-toolbar__menu" id="menuBtn" aria-label="菜单">
+        <svg class="ink-icon"><use href="#i-menu"/></svg>
+      </button>
+      <div class="ink-small" id="docTitle">组件文档</div>
+    </div>
+
+    <main class="ink-doc" id="doc">
+      <div class="ink-doc-loading">正在加载…</div>
+    </main>
+  </div>
+
+</div>
+
+<script>
+  marked.setOptions({ gfm: true, breaks: false, headerIds: false, mangle: false });
+
+  function slugify(text) {
+    const match = text.match(/[A-Za-z]+/);
+    return match ? match[0].toLowerCase() : text.trim().toLowerCase();
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const currentComponent = params.get('c');
+
+  // 侧边栏高亮
+  document.querySelectorAll('.ink-doc-nav-item').forEach(item => {
+    const href = item.getAttribute('href') || '';
+    const match = href.match(/\?c=([^&]+)/);
+    if (match && match[1] === currentComponent) {
+      item.classList.add('is-active');
+    }
+  });
+
+  // 加载文档
+  fetch('./Components.md')
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(md => {
+      const html = marked.parse(md);
+
+      if (!currentComponent) {
+        document.getElementById('doc').innerHTML =
+          '<h1>Ink 组件</h1>' +
+          '<p>Ink 是一套克制的中文设计系统。从左侧选择一个组件开始阅读。</p>';
+        return;
+      }
+
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+
+      const headings = [...temp.querySelectorAll('h2, h3')];
+      let target = null;
+      headings.forEach(h => {
+        if (slugify(h.textContent) === currentComponent) target = h;
+      });
+
+      if (!target) {
+        document.getElementById('doc').innerHTML =
+          '<div class="ink-doc-error">找不到组件：' + currentComponent + '</div>';
+        return;
+      }
+
+      const collected = [];
+      let node = target;
+      const targetLevel = target.tagName;
+      while (node) {
+        collected.push(node);
+        node = node.nextElementSibling;
+        if (node && node.tagName === targetLevel) break;
+      }
+
+      const container = document.getElementById('doc');
+      container.innerHTML = '';
+      collected.forEach(el => container.appendChild(el.cloneNode(true)));
+
+      document.getElementById('docTitle').textContent = target.textContent.trim();
+
+      if (typeof hljs !== 'undefined') {
+        container.querySelectorAll('pre code').forEach(block => {
+          try { hljs.highlightElement(block); } catch (e) {}
+        });
+      }
+    })
+    .catch(err => {
+      document.getElementById('doc').innerHTML =
+        '<div class="ink-doc-error">文档加载失败：' + err.message + '</div>';
+    });
+
+  // 移动端抽屉
+  const sidebar = document.getElementById('sidebar');
+  const scrim = document.getElementById('scrim');
+  const menuBtn = document.getElementById('menuBtn');
+
+  function openSidebar() {
+    sidebar.classList.add('is-open');
+    scrim.classList.add('is-open');
+  }
+  function closeSidebar() {
+    sidebar.classList.remove('is-open');
+    scrim.classList.remove('is-open');
+  }
+
+  menuBtn?.addEventListener('click', openSidebar);
+  scrim?.addEventListener('click', closeSidebar);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSidebar();
+  });
+
+  sidebar?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 860) closeSidebar();
+    });
+  });
+</script>
+
+</body>
+</html>

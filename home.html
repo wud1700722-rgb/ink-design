@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-ink-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ink · 一套克制的中文设计系统</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     SVG Sprite
+     ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+</svg>
+
+<!-- ============================================================
+     顶栏
+     ============================================================ -->
+<header class="ink-topbar">
+  <div class="ink-topbar__inner">
+    <a class="ink-topbar__brand" href="#">
+      <span class="ink-topbar__logo">
+        <svg class="ink-icon"><use href="#i-check"/></svg>
+      </span>
+      <span>Ink</span>
+    </a>
+
+    <nav class="ink-topbar__nav">
+      <a href="#features">特性</a>
+      <a href="#components">组件</a>
+      <a href="#quickstart">快速开始</a>
+      <a href="#">文档</a>
+    </nav>
+
+    <div class="ink-topbar__actions">
+      <a class="ink-btn ink-btn--ghost" href="#">GitHub</a>
+      <a class="ink-btn ink-btn--primary" href="#quickstart">开始使用</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="ink-hero">
+  <div class="ink-wrap">
+    <div class="ink-hero__inner">
+      <span class="ink-badge">
+        <span class="ink-badge__dot"></span>
+        v0.1.2 · 早期预览
+      </span>
+
+      <h1 class="ink-h1">一套克制的中文设计系统</h1>
+
+      <p class="ink-lead ink-hero__lede">
+        不追花哨的配色，不做多余的动效。Ink 提供一套语义清晰的组件与设计令牌，
+        让界面回归内容本身。
+      </p>
+
+<div class="ink-hero__actions">
+  <a class="ink-btn ink-btn--primary ink-btn--lg" href="#quickstart">开始使用</a>
+<a class="ink-btn ink-btn--outline ink-btn--lg" href="#components">浏览组件</a>
+<a class="ink-btn ink-btn--outline ink-btn--lg" href="./fonts.html">预览字体</a>
+</div>
+
+  <p class="ink-hero__meta">零依赖 · 纯 CSS · 4.2 kB gzipped</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     特性
+     ============================================================ -->
+<section class="ink-section" id="features">
+  <div class="ink-wrap">
+    <div class="ink-section__head">
+      <div class="ink-eyebrow">特性</div>
+      <h2 class="ink-h2">少即是多，但不是少到空</h2>
+      <p class="ink-p">
+        Ink 只做必要的抽象。所有组件共享同一套令牌，改一处，全站生效。
+      </p>
+    </div>
+
+    <div class="ink-features">
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-plus"/></svg>
+        </div>
+        <h3 class="ink-h4">语义令牌</h3>
+        <p class="ink-small">颜色、间距、圆角、动效全部收口到 CSS 变量，没有魔法数字散落在样式里。</p>
+      </article>
+
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-grid"/></svg>
+        </div>
+        <h3 class="ink-h4">组件齐全</h3>
+        <p class="ink-small">按钮、分段、芯片、开关、进度、消息条、对话框，覆盖日常界面九成场景。</p>
+      </article>
+
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-sun"/></svg>
+        </div>
+        <h3 class="ink-h4">浅色深色</h3>
+        <p class="ink-small">内置两套主题，跟随系统切换。所有组件在两种模式下都经过对比度校验。</p>
+      </article>
+
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-check"/></svg>
+        </div>
+        <h3 class="ink-h4">零依赖</h3>
+        <p class="ink-small">不依赖任何框架、不引入外部字体。图标全部内联 SVG，离线也能用。</p>
+      </article>
+
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-clock"/></svg>
+        </div>
+        <h3 class="ink-h4">动效克制</h3>
+        <p class="ink-small">只保留两档时长：160ms 和 320ms。不炫技，只做事。</p>
+      </article>
+
+      <article class="ink-feature">
+        <div class="ink-feature__icon">
+          <svg class="ink-icon"><use href="#i-list"/></svg>
+        </div>
+        <h3 class="ink-h4">中文友好</h3>
+        <p class="ink-small">字体栈优先中文黑体，行高、字距针对中文重新调过，不照搬西文比例。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     组件预览
+     ============================================================ -->
+<section class="ink-section" id="components">
+  <div class="ink-wrap">
+    <div class="ink-section__head">
+      <div class="ink-eyebrow">组件</div>
+      <h2 class="ink-h2">一组真实的界面元素</h2>
+      <p class="ink-p">下面这些不是截图，是真实运行的 Ink 组件。可以直接点。</p>
+    </div>
+
+    <div class="ink-preview-band">
+      <button class="ink-btn ink-btn--primary">主要按钮</button>
+      <button class="ink-btn ink-btn--outline">次要按钮</button>
+      <button class="ink-btn ink-btn--ghost">文字按钮</button>
+
+      <span class="ink-divider ink-divider--vertical"></span>
+
+      <div class="ink-segmented">
+        <button class="ink-segmented__item is-active">日</button>
+        <button class="ink-segmented__item">周</button>
+        <button class="ink-segmented__item">月</button>
+      </div>
+
+      <span class="ink-chip is-selected">芯片 · 已选</span>
+      <span class="ink-chip">芯片</span>
+
+      <span class="ink-divider ink-divider--vertical"></span>
+
+      <div class="ink-row">
+        <span class="ink-switch is-on" role="switch" aria-checked="true" tabindex="0"></span>
+        <span class="ink-small">开关</span>
+      </div>
+
+      <span class="ink-divider ink-divider--vertical"></span>
+
+      <div class="ink-progress" style="width:120px" data-progress="60">
+        <div class="ink-progress__bar" style="width:0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     快速开始
+     ============================================================ -->
+<section class="ink-section" id="quickstart">
+  <div class="ink-wrap">
+    <div class="ink-quickstart">
+      <div>
+        <div class="ink-eyebrow">快速开始</div>
+        <h2 class="ink-h2">三步，跑起来</h2>
+        <div class="ink-quickstart__steps">
+          <div class="ink-step">
+            <div class="ink-step__num">1</div>
+            <div class="ink-step__body">
+              <h4>获取源码</h4>
+              <p>从 GitHub 克隆仓库，或直接下载 ZIP 包。</p>
+            </div>
+          </div>
+          <div class="ink-step">
+            <div class="ink-step__num">2</div>
+            <div class="ink-step__body">
+              <h4>引入样式</h4>
+              <p>把 style.css 和 fonts 文件夹放进你的项目，在主入口引入一次。</p>
+            </div>
+          </div>
+          <div class="ink-step">
+            <div class="ink-step__num">3</div>
+            <div class="ink-step__body">
+              <h4>写标签</h4>
+              <p>用语义化的 class 名，不需要任何构建工具，打开就能用。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ink-code-block">
+        <div class="ink-code-block__head">
+          <span class="ink-code-block__dots"><span></span><span></span><span></span></span>
+          <span>terminal</span>
+        </div>
+        <pre><span class="ink-tok-comment"># 第一步：克隆仓库</span>
+git clone https://github.com/你的用户名/ink.git
+
+<span class="ink-tok-comment"># 第二步：在你的 HTML 入口引入 CSS</span>
+<span class="ink-tok-tag">&lt;link</span> <span class="ink-tok-attr">rel</span>=<span class="ink-tok-string">"stylesheet"</span> <span class="ink-tok-attr">href</span>=<span class="ink-tok-string">"./ink/style.css"</span><span class="ink-tok-tag">&gt;</span>
+
+<span class="ink-tok-comment"># 第三步：直接写 Ink 标签</span>
+<span class="ink-tok-tag">&lt;button</span> <span class="ink-tok-attr">class</span>=<span class="ink-tok-string">"ink-btn ink-btn--primary"</span><span class="ink-tok-tag">&gt;</span>
+  开始使用
+<span class="ink-tok-tag">&lt;/button&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     页脚
+     ============================================================ -->
+<footer class="ink-footer">
+  <div class="ink-wrap ink-footer__inner">
+    <div>© 2026 Ink · 用克制换清晰</div>
+    <div class="ink-footer__links">
+      <a href="#">GitHub</a>
+      <a href="#">文档</a>
+      <a href="#">更新日志</a>
+      <a href="#">许可</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 进度条进入视口动画
+  document.querySelectorAll('.ink-progress[data-progress]').forEach(el => {
+    const bar = el.querySelector('.ink-progress__bar');
+    setTimeout(() => { bar.style.width = el.dataset.progress + '%'; }, 100);
+  });
+</script>
+
+</body>
+</html>
