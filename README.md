@@ -29,12 +29,13 @@ Since the entry file is currently `home.html`, please click the link below to ex
 1. Clone this repository:
    ```bash
    git clone https://github.com/wud1700722-rgb/ink-design.git
-```
+   ```
 
 2. Include the stylesheet in your HTML entry:
    ```html
    <link rel="stylesheet" href="./ink-design/style.css">
    ```
+
 3. Start writing Ink tags:
    ```html
    <button class="ink-btn ink-btn--primary">Get Started</button>
