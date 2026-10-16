@@ -1,3 +1,11 @@
+<div align="center">
+
+**Language**
+
+[English](README.md) | [简体中文](README_zh.md)
+
+</div>
+
 # Ink · A Restrained Chinese Design System
 
 No flashy colors, no excessive animations. Ink provides a set of semantically clear design tokens and components, returning the interface to the content itself.
